@@ -1,0 +1,26 @@
+package com.deloitte.lab5.ex2;
+
+// Custom Exception Class
+class NameException extends Exception {
+    public NameException(String message) {
+        super(message);
+    }
+}
+
+public class ValidateName {
+    public static void validate(String firstName, String lastName) throws NameException {
+        if (firstName.isEmpty() || lastName.isEmpty()) {
+            throw new NameException("First name and last name cannot be blank.");
+        } else {
+            System.out.println("Name is valid.");
+        }
+    }
+
+    public static void main(String[] args) {
+        try {
+            validate("", "Doe"); // Test with a blank first name
+        } catch (NameException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+}
